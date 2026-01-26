@@ -39,8 +39,7 @@ class CouponDispenser:
         pass
 
     def __str__(self):
-        if not self.coupon_cards:
-            return ""
+        """
         
         
         Return a single string with all coupons in coupon_cards joined by pipes ('|').
@@ -48,9 +47,10 @@ class CouponDispenser:
 
         Returns:
             str
-        """
+    """
         # TODO: Implement per instructions
-        pass
+        if not self.coupon_cards:
+            return ""
 
     def issue_coupon(self, name):
         """
