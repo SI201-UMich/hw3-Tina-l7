@@ -1,6 +1,6 @@
-# Name:
-# Student ID:
-# Email:
+# Name: Duyen(Tina) Le
+# Student ID: 60151184
+# Email: letina@umich.edu
 # Who or what you worked with on this homework (including generative AI like ChatGPT):
 # If you worked with generative AI also add a statement for how you used it.
 # e.g.:
@@ -27,7 +27,10 @@ class CouponDispenser:
 
     def __init__(self, coupon_cards):
         """
-        Initialize a new CouponDispenser object.
+        self.coupon_cards = coupon_cards
+        self.customer_roster = []
+        self.issued_indices = []
+        
 
         Args:
             coupon_cards (list[str]): list of possible coupons users can receive.
@@ -36,7 +39,10 @@ class CouponDispenser:
         pass
 
     def __str__(self):
-        """
+        if not self.coupon_cards:
+            return ""
+        
+        
         Return a single string with all coupons in coupon_cards joined by pipes ('|').
         If coupon_cards is empty, return an empty string "".
 
@@ -48,6 +54,7 @@ class CouponDispenser:
 
     def issue_coupon(self, name):
         """
+        
         Assign name with a random coupon. If name is already assigned a coupon, return it.
         If the list coupon_cards is empty, return:
         "The box is empty."
