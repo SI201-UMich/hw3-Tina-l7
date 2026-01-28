@@ -27,32 +27,44 @@ class CouponDispenser:
 
     def __init__(self, coupon_cards):
         """
-        self.coupon_cards = coupon_cards
-        self.customer_roster = []
-        self.issued_indices = []
-        
-
         Args:
             coupon_cards (list[str]): list of possible coupons users can receive.
         """
         # TODO: Implement per instructions
-        pass
+        self.coupon_cards = coupon_cards
+        self.customer_roster = []
+        self.issued_indices = []
 
     def __str__(self):
+    
+
         """
-        
-        
         Return a single string with all coupons in coupon_cards joined by pipes ('|').
         If coupon_cards is empty, return an empty string "".
 
         Returns:
             str
-    """
+        """
+        
         # TODO: Implement per instructions
+
         if not self.coupon_cards:
             return ""
+        else:
+            return "|".join(self.coupon_cards)
+        
 
     def issue_coupon(self, name):
+        if self.coupon_cards == []:
+            return "The box is empty."
+        if name in self.customer_roster:
+            index = self.customer_roster.index(name)
+            coupon_index = self.issued_indices[index]
+            coupon = self.coupon_cards[coupon_index]
+            return f"That name already has a coupon: {coupon}" +coupon
+        
+
+             
         """
         
         Assign name with a random coupon. If name is already assigned a coupon, return it.
