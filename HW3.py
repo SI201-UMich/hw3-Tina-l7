@@ -83,6 +83,8 @@ class CouponDispenser:
         pass
 
     def distribute_session(self):
+    
+
         """
         Run the "coupon dispenser" session.
 
@@ -98,9 +100,38 @@ class CouponDispenser:
         Reminder: Use lists only (no dictionaries).
         """
         # TODO: Implement per instructions 
-        pass
+        round_number = 1
+
+        while True:
+            prompt = f"Round {round_number} - Enter a name (or a comma-seperated list), or type 'show' or 'exit': "
+            user_input = input(prompt).strip()
+            if user_input == "exit":
+                print("Goodbye!")
+                break
+            elif user_input == "show":
+                for i in range(len(self.customer_roster)):
+                    name = self.customer_roster[i]
+                    coupon_index = self.issued_indices[i]
+                    coupon = self.coupon_cards[coupon_index]
+                    print(f"{name}: {coupon}")
+                else:
+                    names = [name.strip() for name in user_input.split(",") if name.strip()]
+                    for name in names:
+                        message = self.issue_coupon(name)
+                        print(message)
+                        round_number += 1
+                        
 
     def tally_distribution(self):
+
+        if not self.issued_indices:
+            print("Empty")
+            return
+        
+        for coupon in self.coupon_cards:
+            count = 0
+            coupon_index = self.coupon_
+        
         """
         Extra credit:
         Print coupon distribution counts (NO sorting) using ONLY lists.
