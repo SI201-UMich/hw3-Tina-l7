@@ -127,13 +127,6 @@ class CouponDispenser:
 
     def tally_distribution(self):
 
-        if not self.issued_indices:
-            print("Empty")
-            return
-        
-        for coupon in self.coupon_cards:
-            count = 0
-            coupon_index = self.coupon_
         
         """
         Extra credit:
@@ -150,7 +143,18 @@ class CouponDispenser:
             None
         """
         # TODO: Implement per instructions
-        pass
+        if not self.issued_indices:
+            print("Empty")
+            return
+        
+        for coupon in self.coupon_cards:
+            count = 0
+            coupon_index = self.coupon_cards.index(coupon)
+            for issued_index in self.issued_indices:
+                if issued_index == coupon_index:
+                    count += 1
+                    print(f"{coupon} disturibution count: {count}.")
+
 
 
 def main():
